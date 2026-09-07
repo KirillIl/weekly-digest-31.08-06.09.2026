@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Еженедельный дайджест · 31.08–06.09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F3F1EC;
+    --paper-raised: #FDFCFA;
+    --ink: #1C2622;
+    --ink-soft: #55605A;
+    --line: #DAD5C9;
+    --green: #29604A;
+    --green-soft: #E4EBE3;
+    --gold: #B8862F;
+    --gold-soft: #F2E7D2;
+    --red: #B33B2C;
+    --red-soft: #F4E0DA;
+    --violet: #5B4B8A;
+    --violet-soft: #E7E3F1;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{ margin:0; padding:0; }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    max-width:760px;
+    margin:0 auto;
+    padding:64px 28px 80px;
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    margin-bottom:56px;
+  }
+
+  .hero__kicker{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:0 0 6px;
+  }
+
+  .hero__range{
+    font-family:'PT Serif', serif;
+    font-size:clamp(48px, 9vw, 78px);
+    line-height:1;
+    margin:0;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+
+  .hero__sub{
+    max-width:46ch;
+    margin:20px 0 0;
+    font-size:16px;
+    color:var(--ink-soft);
+  }
+
+  .hero__rule{
+    height:1px;
+    background:var(--line);
+    border:none;
+    margin:40px 0 0;
+  }
+
+  /* ---- Timeline ---- */
+  .timeline{
+    position:relative;
+    margin-top:8px;
+  }
+
+  .entry{
+    position:relative;
+    display:grid;
+    grid-template-columns:92px 1fr;
+    gap:0 24px;
+    padding:40px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  .entry:last-child{
+    border-bottom:none;
+  }
+
+  .entry__date{
+    font-family:'PT Serif', serif;
+    font-size:22px;
+    color:var(--ink);
+    padding-top:2px;
+  }
+
+  .entry__date span{
+    display:block;
+    font-family:'Manrope', sans-serif;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:2px;
+  }
+
+  .entry__body{
+    min-width:0;
+  }
+
+  .tag{
+    display:inline-block;
+    font-size:13px;
+    font-weight:700;
+    padding:4px 12px;
+    border-radius:100px;
+    margin-bottom:14px;
+  }
+
+  .tag--warn{ background:var(--red-soft); color:var(--red); }
+  .tag--feature{ background:var(--green-soft); color:var(--green); }
+  .tag--stop{ background:var(--red); color:#fff; }
+  .tag--task{ background:var(--gold-soft); color:var(--gold); }
+  .tag--promo{ background:var(--violet-soft); color:var(--violet); }
+
+  .entry h2{
+    font-family:'PT Serif', serif;
+    font-weight:700;
+    font-size:23px;
+    margin:0 0 12px;
+    color:var(--ink);
+  }
+
+  .entry p{
+    margin:0 0 14px;
+    color:var(--ink);
+    max-width:58ch;
+  }
+
+  .entry ul{
+    margin:0 0 18px;
+    padding-left:20px;
+    max-width:58ch;
+  }
+
+  .entry li{
+    margin-bottom:7px;
+    color:var(--ink);
+  }
+
+  .entry li::marker{
+    color:var(--ink-soft);
+  }
+
+  .thread-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    font-weight:600;
+    color:var(--ink);
+    text-decoration:none;
+    padding:9px 16px;
+    border:1px solid var(--ink);
+    border-radius:8px;
+    transition:background 0.15s ease, color 0.15s ease;
+  }
+
+  .thread-link:hover{
+    background:var(--ink);
+    color:var(--paper-raised);
+  }
+
+  .thread-link svg{
+    width:14px;
+    height:14px;
+    flex-shrink:0;
+  }
+
+  /* ---- Footer ---- */
+  .footer{
+    margin-top:56px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:560px){
+    .page{ padding:44px 18px 60px; }
+    .entry{ grid-template-columns:1fr; gap:8px; }
+    .entry__date{ padding-top:0; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="hero">
+      <p class="hero__kicker">Еженедельный дайджест для сотрудников</p>
+      <h1 class="hero__range">31.08 — 06.09</h1>
+      <p class="hero__sub">Главное за неделю по работе в АРМ, сделкам и регламентам — коротко, по существу, со ссылками на исходные обсуждения в Mattermost.</p>
+      <hr class="hero__rule">
+    </header>
+
+    <div class="timeline">
+
+      <article class="entry">
+        <div class="entry__date">31.08<span>Воскресенье</span></div>
+        <div class="entry__body">
+          <span class="tag tag--warn">Внимание: ошибки в АРМ</span>
+          <h2>Тип объекта недвижимости в заявках</h2>
+          <p>Участились ошибки при указании типа объекта в заявках АРМ. Это напрямую бьёт по метрикам: в Redash подтягиваются все сделки из АРМ, но показатель «Сделки», а значит и CR, учитывает только сделки по квартирам. Если на сделке по квартире стоит другой тип объекта, система её просто не засчитывает.</p>
+          <ul>
+            <li>Заполняйте все поля заявки в АРМ внимательно, особенно тип объекта</li>
+            <li>Контроль качества со стороны КК усилен</li>
+          </ul>
+          <a class="thread-link" href="https://mt.avito.ru/avito/pl/zrwc8hhxetbpj8yx98p9rpudcw" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Открыть тред
+          </a>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="entry__date">02.09<span>Вторник</span></div>
+        <div class="entry__body">
+          <span class="tag tag--feature">Новая функция</span>
+          <h2>Автоуведомления агентам при изменении объекта</h2>
+          <p>В проде завершена фича «Редактирование объекта в заявке». Теперь при сохранении правок по значимым полям — тип недвижимости, ЖК, корпус/секция, номер объекта — агенту автоматически приходит сообщение с актуальными данными прямо в чат заявки.</p>
+          <ul>
+            <li>Дублировать правку агенту вручную больше не нужно — сообщение уходит само</li>
+            <li>Если агент замечает ошибку и отвечает в чате, это обрабатывается как обычное обращение</li>
+            <li>Правки юрлица, площади или адреса уведомление не вызывают</li>
+            <li>Уведомление отправляется один раз на каждое сохранение формы «Объект»</li>
+            <li>В кабинете агента объект пока отображается неактуальным — доработка в следующих спринтах</li>
+          </ul>
+          <p style="margin-top:-4px; font-size:14px; color:var(--ink-soft);">Странности с уведомлением — не пришло, пришло лишнее, кривые данные — пишите в rre-trx-support.</p>
+          <a class="thread-link" href="https://mt.avito.ru/avito/pl/13x85ceqfj8r3qxxy7qhb1rfyh" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Открыть тред
+          </a>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="entry__date">02.09<span>Вторник</span></div>
+        <div class="entry__body">
+          <span class="tag tag--stop">Стоп авансирования</span>
+          <h2>Застройщик МСК Ростов‑на‑Дону</h2>
+          <p>С 02.09 авансирование по застройщику приостановлено — теперь у него действует постоплатная система расчётов.</p>
+          <ul>
+            <li>Внести примечание в ТК: «У застройщика действует постоплатная система расчётов»</li>
+            <li>Обновить внутренний и внешний регламенты</li>
+            <li>Проинформировать агентов, уже приславших полный пакет документов — работаем только по постоплате, об изменении ситуации сообщим отдельно</li>
+          </ul>
+          <a class="thread-link" href="https://mt.avito.ru/avito/pl/infu56s8ojrbtdp1jpet7geiio" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Открыть тред
+          </a>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="entry__date">03.09<span>Среда</span></div>
+        <div class="entry__body">
+          <span class="tag tag--task">Новая задача</span>
+          <h2>Сделка: проверка документов</h2>
+          <p>Добавлен новый тип задачи — «Сделка: проверка документов». Она создаётся автоматически при загрузке полного пакета (Договор + Реквизиты), даже без нажатия отдельной кнопки, и попадает в автоподачу с приоритетом сразу после задачи «Фиксация/Бронирование: Запрос документов».</p>
+          <p style="font-size:14px; color:var(--ink-soft);">Задача заработает с 04.09 — при проблемах пишите в этом же треде.</p>
+          <a class="thread-link" href="https://mt.avito.ru/avito/pl/ekesgsgzwin78d3zurdkkzojqy" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Открыть тред
+          </a>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="entry__date">05.09<span>Пятница</span></div>
+        <div class="entry__body">
+          <span class="tag tag--promo">Акция партнёра</span>
+          <h2>+1500 рублей от MIVAS</h2>
+          <p>Меняем формат рассылки про акцию: вместо текста теперь отправляем в чат картинку-скриншот, чтобы агентам было удобнее детально изучить условия. Ссылка в QR-коде на изображении ведёт в обращение к менеджеру Авито.</p>
+          <p>Также меняются правила передачи в канал PC Mortgage Support:</p>
+          <ul>
+            <li>Передаём только те фиксации, где у агента есть явный запрос на то, чтобы с ним связались</li>
+            <li>При передаче в канал обязательно конкретизируем причину передачи на MIVAS</li>
+            <li>Если известно, что способ оплаты — ипотека, но запроса от агента на связь по ипотеке не было — такое в канал не передаём</li>
+          </ul>
+          <a class="thread-link" href="https://mt.avito.ru/avito/pl/mhw6zhygnpfmb87jny1sgcspcc" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Открыть тред
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="footer">Собрано из еженедельных апдейтов команды · нажмите «Открыть тред», чтобы увидеть полное обсуждение и скриншоты в Mattermost</p>
+
+  </div>
+</body>
+</html>
